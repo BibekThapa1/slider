@@ -1,8 +1,8 @@
 *,
 ::before,
-::after{
-    margin:0;
-    padding:0;
+::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -48,101 +48,182 @@
     --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --max-width: 1170px;
     --fixed-width: 620px;
-  }
+}
+
 /* 
        Global Styles
 */
-html{
+html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 100%;
     scroll-behavior: smooth;
 }
 
-body{
-    background-color: rgba(0, 0, 0, 0.01);
-}
-h1{
-    font-size:3rem;
-}
-h2{
-    font-size:2.5rem;
+body {
+    background-color: var(--clr-grey-10);
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+h1 {
+    font-size: 3rem;
 }
-button{
-    border:none;
-    cursor:pointer;
+
+h2 {
+    font-size: 2.5rem;
 }
-i{
-    border:none;
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+i {
+    border: none;
 }
 
 
-#slider-container{
-    width:90vw;
-    margin:0 auto;
-    margin-top:5rem;
+#slider-container {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 5rem;
     text-align: center;
-    position:relative;
+    position: relative;
+    max-width: 700px;
 }
 
-.headings span{
-    color:var(--clr-primary-4);
+.headings span {
+    color: var(--clr-primary-4);
 }
-.headings h1{
-    padding:4px 5px;
-    color:var(--clr-black);
+
+.headings h1 {
+    padding: 4px 5px;
+    color: var(--clr-black);
     font-weight: 500;
     margin-bottom: 2.2rem;
-    font-size:2.4rem;
+    font-size: 2.4rem;
 }
-.slider-content{
-    padding:5px 10px;
+
+.slider-content {
+    padding: 5px 10px;
 
 }
-.slider-content img{
-   height:150px;
-   width:150px;
-   object-fit: cover;
-   border:5px solid var(--clr-primary-10);
-   border-radius: 50%;
+
+.slider-content img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border: 1px solid var(--clr-grey-8);
+    border-radius: 50%;
+    padding:4px;
+     background-color: #fff;
 }
-.slider-content .name{
-    padding:20px 0 10px 0;
-    color:var(--clr-primary-3);
-    font-weight: 500;
-}
-.slider-content .role{
-    font-size:1.221rem;
+
+.slider-content .name {
+    padding: 20px 0 10px 0;
+    color: var(--clr-primary-3);
     font-weight: 400;
-    margin-bottom: 10px;
+    text-transform: uppercase;
 }
-.slider-content .description{
+
+.slider-content .role {
+    font-size: 1.221rem;
+    font-weight: 350;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.slider-content .description {
     font-size: 14px;
     letter-spacing: 1.7px;
 }
-.slider-content .quote-icon{
-    font-size: 5rem;
-    color:var(--clr-primary-5);
-    margin-top:1rem;
 
+.slider-content .quote-icon {
+    font-size: 5rem;
+    color: var(--clr-primary-5);
+    margin-top: 1rem;
 }
-.buttons .btn{
-    font-size:1.5rem;
+
+.slider-content {
+    position: relative;
+    overflow: hidden;
+    height:450px;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.buttons .btn {
+    font-size: 1.5rem;
     background-color: var(--clr-grey-5);
-    color:#fff;
+    color: #fff;
     padding: 2px;
     border-radius: 5px;
-    position:absolute;
+    position: absolute;
 }
-.buttons .left-btn{
-    left:0;
-    top:40%;
+
+.buttons .left-btn {
+    left: 0;
+    top: 30%;
 }
-.buttons .right-btn{
-    right:0;
-    top:40%;
+
+.buttons .right-btn {
+    right: 0;
+    top: 30%;
+}
+
+@media screen and (min-width:800px) {
+    .btn {
+        font-weight: 700;
+    }
+
+    .buttons .left-btn {
+        left: -5%;
+    }
+
+    .buttons .right-btn {
+        right: -5%;
+        top: 30%;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    .buttons .left-btn {
+        left: -10%;
+    }
+
+    .buttons .right-btn {
+        right: -10%;
+        top: 30%;
+    }
+}
+
+
+/* 
+        Javascript Css
+*/
+.slider-content {
+    display: flex;
+}
+.slide{
+    opacity: 0;
+    transition: 0.3s all ease-in;
+}
+.slide.active{
+   opacity:1;
+   transform:translateX(0);
+}
+.slide.next{
+    transform: translateX(100%);
+}
+.slide.last{
+    transform: translateX(-100%);
 }

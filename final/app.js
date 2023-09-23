@@ -37,12 +37,12 @@ container.innerHTML = people
 </div>
  </article>`
   })
-  .join('')
+  .join('');
 
 const startSlider = (type) => {
   // get all three slides active,last next
   const active = document.querySelector('.active')
-  const last = document.querySelector('.last')
+  const last = document.querySelector('.last') 
   let next = active.nextElementSibling
   if (!next) {
     next = container.firstElementChild
@@ -50,7 +50,7 @@ const startSlider = (type) => {
   active.classList.remove('active')
   last.classList.remove('last')
   next.classList.remove('next')
-
+ 
   if (type === 'prev') {
     active.classList.add('next')
     last.classList.add('active')
