@@ -109,6 +109,7 @@ i {
 
 .slider-content {
     padding: 5px 10px;
+    transition:all 1s  linear;
 
 }
 
@@ -118,8 +119,8 @@ i {
     object-fit: cover;
     border: 1px solid var(--clr-grey-8);
     border-radius: 50%;
-    padding:4px;
-     background-color: #fff;
+    padding: 4px;
+    background-color: #fff;
 }
 
 .slider-content .name {
@@ -150,7 +151,7 @@ i {
 .slider-content {
     position: relative;
     overflow: hidden;
-    height:450px;
+    height: 450px;
 }
 
 .slide {
@@ -213,17 +214,21 @@ i {
 .slider-content {
     display: flex;
 }
-.slide{
+
+.slide {
     opacity: 0;
     transition: 0.3s all ease-in;
 }
-.slide.active{
-   opacity:1;
-   transform:translateX(0);
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
 }
-.slide.next{
+
+.slide.next {
     transform: translateX(100%);
 }
-.slide.last{
+
+.slide.last {
     transform: translateX(-100%);
 }

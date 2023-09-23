@@ -6,14 +6,17 @@ let leftBtn = document.querySelector(".left-btn");
 let rightBtn = document.querySelector(".right-btn");
 
 let people = [...data];
-console.log(people);
 
 if (data.length == 1) {
   leftBtn.style.display = "none";
   rightBtn.style.display = "none";
 }
 
-sliderContainer.innerHTML = data
+if(data.lenght == 2){
+  people = [...data,...data];
+}
+
+sliderContainer.innerHTML = people
   .map((e, slideIndex) => {
     let position = "next";
     if (slideIndex == 0) {
@@ -48,14 +51,14 @@ const startSlide = (type) => {
   const last = document.querySelector(".last");
   let next = active.nextElementSibling;
   if (!next) {
-    sliderContainer.firstElementChild;
+    next = sliderContainer.firstElementChild;
   }
 
   active.classList.remove("active");
   last.classList.remove("last");
   next.classList.remove("next");
   if (type == "prev") {
-    active.classList.add("last");
+    active.classList.add("next");
     last.classList.add("active");
     next = last.previousElementSibling;
 
@@ -63,6 +66,7 @@ const startSlide = (type) => {
       next = sliderContainer.lastElementChild;
     }
     next.classList.add("last");
+    return;
   }
 
   active.classList.add("last");
